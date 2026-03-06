@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BirdBase | AI Bird Identifier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header>
+            <h1>BirdBase AI</h1>
+            <p>Upload a bird image for instant species classification and biological insights.</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section" id="drop-zone">
+            <input type="file" id="file-input" accept="image/*" hidden />
+            <div class="upload-box" onclick="document.getElementById('file-input').click()">
+                <div class="upload-icon">📸</div>
+                <h2>Drag & Drop or Click to Upload</h2>
+                <p>Supports JPG, PNG, JPEG</p>
+            </div>
+        </section>
+
+        <!-- Preview & Loader -->
+        <section class="preview-section hidden" id="preview-section">
+            <img id="image-preview" src="" alt="Selected Bird" />
+            
+            <div class="loader hidden" id="loader">
+                <div class="spinner"></div>
+                <p>Analyzing Image with YOLOv8 & ONNX...</p>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section hidden" id="results-section">
+            <div class="result-card">
+                <h2 id="species-name">Eagle</h2>
+                <p class="confidence">Confidence: <span id="confidence-score">98%</span></p>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span>Scientific Name</span>
+                        <strong id="scientific-name">Accipitridae</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Lifespan</span>
+                        <strong id="lifespan">20-30 years</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Habitat</span>
+                        <strong id="habitat">Mountains, Forests</strong>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    <h3>Description</h3>
+                    <p id="description-text">Large birds of prey with heavy heads and beaks.</p>
+                </div>
+                
+                <button class="reset-btn" onclick="resetApp()">Analyze Another Image</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

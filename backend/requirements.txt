@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+torch
+torchvision
+ultralytics
+opencv-python
+pandas
+numpy
+python-multipart
+onnx
+onnxruntime
+pydantic
